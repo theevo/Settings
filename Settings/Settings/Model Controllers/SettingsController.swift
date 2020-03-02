@@ -21,7 +21,7 @@ class SettingsController {
     
     // MARK: - Methods
     
-    func toggleIsOn(for setting: Setting) {
+    static func toggleIsOn(for setting: Setting) {
         setting.isOn = !setting.isOn
     }
     

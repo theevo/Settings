@@ -26,8 +26,19 @@ class SettingsListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
         let setting = SettingsController.settings[indexPath.row]
         cell.updateViews(with: setting)
+        cell.delegate = self
 
         return cell
     }
     
 } // class end
+
+extension SettingsListTableViewController: SettingTableViewCellDelegate {
+    func settingSwitchTapped(for cell: SettingTableViewCell) {
+        /// TBVC -> ModelController to update the isOn -> Cell.update
+        guard let index = tableView.indexPath(for: cell) else { return }
+        let setting = SettingsController.settings[index.row]
+        SettingsController.toggleIsOn(for: setting)
+        cell.updateViews(with: setting)
+    }
+}
