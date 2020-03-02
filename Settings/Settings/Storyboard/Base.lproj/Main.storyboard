@@ -3,19 +3,20 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Settings List Table View Controller-->
         <scene sceneID="ybj-ds-D4q">
             <objects>
-                <tableViewController id="S1G-tZ-ulP" sceneMemberID="viewController">
+                <tableViewController id="S1G-tZ-ulP" customClass="SettingsListTableViewController" customModule="Settings" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f7u-Bj-yty">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCell" rowHeight="118" id="vuG-lN-1P2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCell" rowHeight="118" id="vuG-lN-1P2" customClass="SettingTableViewCell" customModule="Settings" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="118"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vuG-lN-1P2" id="vIJ-SL-P5l">
@@ -29,17 +30,20 @@
                                                 <constraint firstAttribute="width" secondItem="TdL-xX-4yj" secondAttribute="height" multiplier="1:1" id="qDD-2B-oHT"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="gJl-2Z-8zl">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gJl-2Z-8zl">
                                             <rect key="frame" x="60" y="43.5" width="346" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t85-VS-jCR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="31"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="289" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kuC-mx-TiE">
                                                     <rect key="frame" x="297" y="0.0" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="settingSwitchToggled:" destination="vuG-lN-1P2" eventType="valueChanged" id="71j-a1-ok2"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </stackView>
@@ -54,6 +58,11 @@
                                     <constraint firstItem="gJl-2Z-8zl" firstAttribute="leading" secondItem="TdL-xX-4yj" secondAttribute="trailing" constant="8" id="bXF-e5-Gl9"/>
                                     <constraint firstAttribute="trailing" secondItem="gJl-2Z-8zl" secondAttribute="trailing" constant="8" id="bs2-Pf-yiy"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="settingIcon" destination="TdL-xX-4yj" id="LRT-ev-IWY"/>
+                                    <outlet property="settingLabel" destination="t85-VS-jCR" id="lYa-7H-5tW"/>
+                                    <outlet property="settingSwitch" destination="kuC-mx-TiE" id="eXv-3v-E1c"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
