@@ -2,11 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-<<<<<<< HEAD:Settings/Settings/Resources/Assets.xcassets/books.imageset/Contents.json
       "filename" : "books.png",
-=======
-      "filename" : "screenshot.png",
->>>>>>> 630aa98155c65357bb2bd07e81c6386e4cf2f019:Settings/Settings/Assets.xcassets/iTunes.imageset/Contents.json
       "scale" : "1x"
     },
     {
