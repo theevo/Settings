@@ -22,7 +22,7 @@ class SettingsController {
     // MARK: - Methods
     
     func toggleIsOn(for setting: Setting) {
-        
+        setting.isOn = !setting.isOn
     }
     
 }
